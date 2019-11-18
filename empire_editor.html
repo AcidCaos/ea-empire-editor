@@ -13,7 +13,7 @@
 
     <div style=" background:white; height:40px; width:100%; position:fixed; top:0;
     left:0;">
-        <h2 style="display: inline">Empire Editor v0.1  </h2> | 
+        <h2 style="display: inline">Empire Editor </h2> | 
         <style type="text/css">
           #ObjSel { 
             -moz-appearance: none;
@@ -82,10 +82,14 @@
             <option value="Daisy Blue">Daisy Blue</option>
             
         </select>
-          or Custom itemName: <input id="customName" value="">
-            <button onclick='window.open("objects.html", "_blank", "location=no,menubar=no,height=630,width=580,scrollbars=yes,status=no,toolbar=no")'>Search for Objects</button>
-            <button onclick="downloadJSON()">Download Map JSON</button>
-             | JS Empire Editor v0.1 ~ Raise the Empires 2019.
+        or Custom: <input id="customName" value="">
+        <input id="customID" value="1000" style="width: 4em">
+        <button onclick='window.open("objects.html", "_blank", "location=no,menubar=no,height=630,width=580,scrollbars=yes,status=no,toolbar=no")'>Search for Objects</button>
+         ~ 
+        <button onclick="downloadJSON()">Load PROJECT</button>
+        <button onclick="downloadJSON()">Save PROJECT</button>
+         ~ 
+        <button onclick="downloadJSON()">Download JSON</button>
         <div><hr></div>
     </div>
     <div style=" padding-top:35px ">
