@@ -10,86 +10,92 @@
     </style>
   </head>
   <body>
-    <h2 style="display: inline">Empire Editor v0.1  </h2> | 
-    <style type="text/css">
-      #ObjSel { 
-        -moz-appearance: none;
-        width:150px; 
-        height: 22px; 
-        background-color: Transparent; 
-        padding:1px; line-height: 2px;
-      }
-    </style>
-    <select id="ObjSel">
-        <option value="null">Object (itemName)</option>
-        <option value="road">Road</option>
 
-        <option value="tree01">Arbre simple sing. llarg (petit) (tree01)</option>
-        <option value="tree07">Pomers (gran) (tree07)</option>
-        <option value="tree10">Tarongers (gran) (tree10)</option>
-        <option value="tree21">Plataner (2x1 petit) (tree21)</option>
-        <option value="tree22">Plataner (petit) (tree22)</option>
-        <option value="tree23">Plataners (gran) (tree23)</option>
-        <option value="tree24">Palmera coco (petita) (tree24)</option>
-        <option value="tree25">Palmera coco (2x1 petita) (tree25)</option>
-        <option value="tree26">Palmeres cocos (gran) (tree26)</option>
-        <option value="tree27">Palmera (petita) (tree27)</option>
-        <option value="tree28">Palmera (2x1 petita) (tree28)</option>
-        <option value="tree29">Palmeres (gran) (tree29)</option>
-        <option value="tree30">Arbre simple gros (petit) (tree30)</option>
-        <option value="tree31">Arbre simple gros (2x1 petit) (tree31)</option>
-        <option value="tree32">Arbres simples grossos (gran) (tree32)</option>
+    <div style=" background:white; height:40px; width:100%; position:fixed; top:0;
+    left:0;">
+        <h2 style="display: inline">Empire Editor v0.1  </h2> | 
+        <style type="text/css">
+          #ObjSel { 
+            -moz-appearance: none;
+            width:150px; 
+            height: 22px; 
+            background-color: Transparent; 
+            padding:1px; line-height: 2px;
+          }
+        </style>
+        <select id="ObjSel">
+            <option value="null">Object (itemName)</option>
+            <option value="road">Road</option>
 
-        <option value="tree33">Arbre daurat (petit) (tree33)</option>
-        <option value="tree34">Arbre daurat (2x1 petit) (tree34)</option>
-        <option value="tree35">Arbres daurats (gran) (tree35)</option>
+            <option value="tree01">Arbre simple sing. llarg (petit) (tree01)</option>
+            <option value="tree07">Pomers (gran) (tree07)</option>
+            <option value="tree10">Tarongers (gran) (tree10)</option>
+            <option value="tree21">Plataner (2x1 petit) (tree21)</option>
+            <option value="tree22">Plataner (petit) (tree22)</option>
+            <option value="tree23">Plataners (gran) (tree23)</option>
+            <option value="tree24">Palmera coco (petita) (tree24)</option>
+            <option value="tree25">Palmera coco (2x1 petita) (tree25)</option>
+            <option value="tree26">Palmeres cocos (gran) (tree26)</option>
+            <option value="tree27">Palmera (petita) (tree27)</option>
+            <option value="tree28">Palmera (2x1 petita) (tree28)</option>
+            <option value="tree29">Palmeres (gran) (tree29)</option>
+            <option value="tree30">Arbre simple gros (petit) (tree30)</option>
+            <option value="tree31">Arbre simple gros (2x1 petit) (tree31)</option>
+            <option value="tree32">Arbres simples grossos (gran) (tree32)</option>
 
-        <option value="tree36">Arbre simple marró (petit) (tree36)</option>
-        <option value="tree37">Arbre simple marró (2x1 petit) (tree37)</option>
-        <option value="tree38">Arbres simples marrons (gran) (tree38)</option>
-        
-        <option value="tree39">Arbres simples marrons pos2 (gran) (tree39)</option>
-        <option value="tree40">Arbre simple llarg vermell (petit) (tree40)</option>
-        <option value="tree41">Arbre simple vermell (2x1 petit) (tree41)</option>
-        <option value="tree42">Arbres simples vermells (gran) (tree42)</option>
-        <option value="tree43">Arbre simple sombrilla (petit) (tree43)</option>
-        <option value="tree44">Arbre simple sombrilla (2x1 petit) (tree44)</option>
-        <option value="tree45">Arbres simples sombrilles (gran) (tree45)</option>
-        <option value="tree46">Arbre despullat (petit) (tree46)</option>
-        <option value="tree47">Arbre despullat (2x1 petit) (tree47)</option>
-        <option value="tree48">Arbres despullats (gran) (tree48)</option>
-        <option value="tree49">Arbre simple llarg (petit) (tree49)</option>
-        <option value="tree50">Arbre simple llarg (2x1 petit) (tree50)</option>
-        <option value="tree51">Arbres simples llargs (gran) (tree51)</option>
+            <option value="tree33">Arbre daurat (petit) (tree33)</option>
+            <option value="tree34">Arbre daurat (2x1 petit) (tree34)</option>
+            <option value="tree35">Arbres daurats (gran) (tree35)</option>
 
-        <option value="Bush02">Squared bush (Bush02)</option>
-        <option value="Bush01">Round Bush (Bush01)</option>
-        <option value="bush 01">Simple Bush (bush 01)</option>
+            <option value="tree36">Arbre simple marró (petit) (tree36)</option>
+            <option value="tree37">Arbre simple marró (2x1 petit) (tree37)</option>
+            <option value="tree38">Arbres simples marrons (gran) (tree38)</option>
+            
+            <option value="tree39">Arbres simples marrons pos2 (gran) (tree39)</option>
+            <option value="tree40">Arbre simple llarg vermell (petit) (tree40)</option>
+            <option value="tree41">Arbre simple vermell (2x1 petit) (tree41)</option>
+            <option value="tree42">Arbres simples vermells (gran) (tree42)</option>
+            <option value="tree43">Arbre simple sombrilla (petit) (tree43)</option>
+            <option value="tree44">Arbre simple sombrilla (2x1 petit) (tree44)</option>
+            <option value="tree45">Arbres simples sombrilles (gran) (tree45)</option>
+            <option value="tree46">Arbre despullat (petit) (tree46)</option>
+            <option value="tree47">Arbre despullat (2x1 petit) (tree47)</option>
+            <option value="tree48">Arbres despullats (gran) (tree48)</option>
+            <option value="tree49">Arbre simple llarg (petit) (tree49)</option>
+            <option value="tree50">Arbre simple llarg (2x1 petit) (tree50)</option>
+            <option value="tree51">Arbres simples llargs (gran) (tree51)</option>
 
-        <option value="rock01">Pedres marrons (gran) (rock01)</option>
-        <option value="rock02">Roques marrons (gran) (rock02)</option>
-        <option value="rock03">Pedres grises (gran) (rock03)</option>
-        <option value="rock04">Roques grises (gran) (rock04)</option>
+            <option value="Bush02">Squared bush (Bush02)</option>
+            <option value="Bush01">Round Bush (Bush01)</option>
+            <option value="bush 01">Simple Bush (bush 01)</option>
 
-        <option value="bricks_red">Red Bricks (bricks_red)</option>
-        <option value="bricks_beige">Beige Bricks (bricks_beige)</option>
-        <option value="Small Farm">Farm (Small Farm)</option>
-        <option value="Mail Box Blue">Mail Box Blue</option>
-        <option value="Daisy Purple">Daisy Purple</option>
-        <option value="Daisy Blue">Daisy Blue</option>
-        
-    </select>
-      or Custom itemName: <input id="customName" value="">
-        <button onclick='window.open("objects.html", "_blank", "location=no,menubar=no,height=630,width=580,scrollbars=yes,status=no,toolbar=no")'>Search for Objects</button>
-        <button onclick="downloadJSON()">Download Map JSON</button>
-         | JS Empire Editor v0.1 ~ Raise the Empires 2019.
-    <div><hr></div>
-    <script src="sketch.js" type="text/javascript"></script>
-    <div id="sketch-holder">
-      <!-- Sketch here -->
+            <option value="rock01">Pedres marrons (gran) (rock01)</option>
+            <option value="rock02">Roques marrons (gran) (rock02)</option>
+            <option value="rock03">Pedres grises (gran) (rock03)</option>
+            <option value="rock04">Roques grises (gran) (rock04)</option>
+
+            <option value="bricks_red">Red Bricks (bricks_red)</option>
+            <option value="bricks_beige">Beige Bricks (bricks_beige)</option>
+            <option value="Small Farm">Farm (Small Farm)</option>
+            <option value="Mail Box Blue">Mail Box Blue</option>
+            <option value="Daisy Purple">Daisy Purple</option>
+            <option value="Daisy Blue">Daisy Blue</option>
+            
+        </select>
+          or Custom itemName: <input id="customName" value="">
+            <button onclick='window.open("objects.html", "_blank", "location=no,menubar=no,height=630,width=580,scrollbars=yes,status=no,toolbar=no")'>Search for Objects</button>
+            <button onclick="downloadJSON()">Download Map JSON</button>
+             | JS Empire Editor v0.1 ~ Raise the Empires 2019.
+        <div><hr></div>
     </div>
-    <h3>JSON map:</h3>
-    <textarea disabled id="jsonMap" style="/*display: none;*/ height: 700px; width: 600px; resize: none; draggable="false" overflow:auto;" ></textarea>
-    <p>Raise the Empires 2019</p>
+    <div style=" padding-top:35px ">
+        <script src="sketch.js" type="text/javascript"></script>
+        <div id="sketch-holder">
+          <!-- Sketch here -->
+        </div>
+        <h3>JSON map:</h3>
+        <textarea disabled id="jsonMap" style="/*display: none;*/ height: 700px; width: 600px; resize: none; draggable="false"; overflow:auto;" ></textarea>
+        <p>Raise the Empires 2019</p>
+    </div>
   </body>
 </html>
