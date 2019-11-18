@@ -93,7 +93,13 @@ class Objects{
 		}
 		if(occupied === false){
 			if(itemName === "road") id = roads_id;
-			else {last_placed_id++; id = last_placed_id;}
+			else { 
+				last_placed_id = IDCustom.value();
+				id = last_placed_id;
+				last_placed_id++;
+				console.log(last_placed_id);
+				IDCustom.value(last_placed_id);
+			}
 
 		this.o = new Obj(x, y, id, itemName);
 		this.objects.push(this.o);
@@ -322,7 +328,9 @@ function setup(){
 	//HTML select
 	ObjSelect = select("#ObjSel");
 	ObjCustom = select("#customName");
+	IDCustom = select("#customID");
 	JSONmap = select("#jsonMap");
+	IDCustom.value(last_placed_id);
 	//console.log(ObjSelect.value());
 	bg = loadImage("https://serving.photos.photobox.com/498457652e5862ae82ea4f1226d7a0a04e1d5bc20590fd7a2f2b20030c30f2bd1c36c9b9.jpg");
 }
