@@ -82,14 +82,16 @@
             <option value="Daisy Blue">Daisy Blue</option>
             
         </select>
-        or Custom: <input id="customName" value="">
+        or Custom: <input id="customName" value="" style="width: 7em">
         <input id="customID" value="1000" style="width: 4em">
         <button onclick='window.open("objects.html", "_blank", "location=no,menubar=no,height=630,width=580,scrollbars=yes,status=no,toolbar=no")'>Search for Objects</button>
-         ~ 
-        <button onclick="downloadJSON()">Load PROJECT</button>
-        <button onclick="downloadJSON()">Save PROJECT</button>
-         ~ 
-        <button onclick="downloadJSON()">Download JSON</button>
+         ~ Project: 
+        <button onclick="Objects.saveLocal()" title="Save project">Save</button>
+        <button onclick="Objects.loadLocal()" title="Load project from browser local Storage">Load</button>
+        or <button onclick="Objects.loadFile()" title="Load project from a saved project file">Load file</button>
+                <div id="file-holder" style="display: inline"></div>
+         ~ Map JSON: 
+        <button onclick="downloadJSON()" title="Download map file (not the project)">Download</button>
         <div><hr></div>
     </div>
     <div style=" padding-top:35px ">

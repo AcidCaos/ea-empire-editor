@@ -34,6 +34,8 @@ let ObjSelect;
 let oldSel;
 let oldCustom;
 let custom = false;
+//html objects
+let input_loadFile;
 //Zoom vars
 let zoom = 1.00;
 let zMin = 0.9;
@@ -49,7 +51,7 @@ class Obj {
 		//Isometric coordinates
 		this.tileX = x;
 		this.tileY = y;
-		console.log(x + ", isom " + y);
+		//console.log(x + ", isom " + y);
 		//Actual screen position (may cahnge)
 		this.coordY = (y*((canvas_size*c_ratio)/total_tiles)-(height/2)+c_ratio*(x*(canvas_size/total_tiles)+(width/2)))/2;
 		this.coordX = x*(canvas_size/total_tiles)+(width/2)-(this.coordY/c_ratio);
@@ -97,7 +99,7 @@ class Objects{
 				last_placed_id = IDCustom.value();
 				id = last_placed_id;
 				last_placed_id++;
-				console.log(last_placed_id);
+				//console.log(last_placed_id);
 				IDCustom.value(last_placed_id);
 			}
 
@@ -170,6 +172,60 @@ class Objects{
 			this.objects[i].recalcCoords();
 		}
 	}
+
+	saveLocal(){
+
+		save(this.objects, 'projectSAVE.json');
+		console.log("JSON project downloaded");
+
+		localStorage.setItem("localSave", JSON.stringify(this.objects));
+		console.log("Saved (localStorage)");
+
+		alert("Saved in the browser local Storage.\nSaved in the downloaded file.");
+	}
+
+	loadLocal(){
+		let obj_arr = JSON.parse( localStorage.getItem("localSave"));
+		this.saveLoadedObj(obj_arr);
+	}
+
+	loadFile(){
+		input_loadFile = createFileInput(handleFile);
+		input_loadFile.parent('file-holder');
+	}
+
+	saveLoadedObj(obj_arr){
+		
+		console.log(obj_arr);
+
+		let maxID = -1;
+		console.log("Loaded (from file or localStorage):");
+		console.log(obj_arr);
+		this.objects = [];
+		for (let i = 0; i < obj_arr.length; i++) {
+			let o = new Obj(obj_arr[i].tileX, obj_arr[i].tileY, obj_arr[i].id, obj_arr[i].itemName);
+			this.objects.push(o);
+			if(maxID < obj_arr[i].id) maxID = obj_arr[i].id;
+		}
+		console.log("Converted to objects:");
+		console.log(this.objects);
+		if(maxID !== -1){
+			last_placed_id = parseInt(maxID) + 1;
+			IDCustom.value(last_placed_id);
+		}
+	}
+}
+
+function handleFile(file){	
+	// Split file.data and get the base64 string
+	let base64Str = file.data.split(",")[1];
+	// Parse the base64 string into a JSON string
+	let jsonStr = atob(base64Str);
+	// Parse the JSON object into a Javascript object
+	let obj_arr = JSON.parse(jsonStr);
+
+	Objects.saveLoadedObj(obj_arr);
+	input_loadFile.hide();
 }
 
 function draw_map_area(){
@@ -424,8 +480,8 @@ function mouseClicked(){
 	if((oldX === selectedX && oldX != -1)&&(oldY === selectedY && oldY != -1)){
 		//
 		if(!Objects.delete(selectedMapX, selectedMapY)){
-			Objects.add(selectedMapX, selectedMapY, selectedObjName);
 			console.log("Added object: " + selectedMapX + ", " + selectedMapY);
+			Objects.add(selectedMapX, selectedMapY, selectedObjName);
 			selectedMapX = -1;
 			selectedMapY = -1;
 			selectedY = -1;
