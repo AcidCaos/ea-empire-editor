@@ -109,7 +109,7 @@ class Objects{
 	delete(posX, posY){
 		for (let i = 0; i < this.objects.length; i++){
 			if(this.objects[i].tileX === posX && this.objects[i].tileY === posY){
-				this.objects.splice(i);
+				this.objects.splice(i,1);
 				return true;
 				//i = this.objects.length;
 			}
@@ -277,9 +277,12 @@ function downloadJSON(){
 	let txt = Objects.toJSON();
 	console.log(txt);
 
-	save(txt, 'createdMap.txt');
+	//save(txt, 'createdMap.txt');
+	/*if (typeof txt === 'string') {
+    	console.log("String!!!");
+  	}*/
 	//save(txt, 'createdMap.json');
-	//saveStrings(txt, 'createdMap');
+	saveStrings(txt, 'createdMap');
 }
 
 function windowResized(){
