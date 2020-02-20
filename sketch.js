@@ -369,6 +369,7 @@ function windowResized(){
 }
 
 function setup(){
+	frameRate(60);
 	canvas_size = windowWidth-35;
 	var canvas = createCanvas(canvas_size, canvas_size*c_ratio);
 	canvas.parent('sketch-holder');
