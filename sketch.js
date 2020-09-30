@@ -389,7 +389,8 @@ function setup(){
 	JSONmap = select("#jsonMap");
 	IDCustom.value(last_placed_id);
 	//console.log(ObjSelect.value());
-	bg = loadImage("https://serving.photos.photobox.com/498457652e5862ae82ea4f1226d7a0a04e1d5bc20590fd7a2f2b20030c30f2bd1c36c9b9.jpg");
+	//bg = loadImage("https://serving.photos.photobox.com/498457652e5862ae82ea4f1226d7a0a04e1d5bc20590fd7a2f2b20030c30f2bd1c36c9b9.jpg");
+	bg = loadImage("https://i.imgur.com/6oW7vfR.jpg");
 }
 
 function draw(){
