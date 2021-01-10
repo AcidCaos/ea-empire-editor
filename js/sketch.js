@@ -35,7 +35,8 @@ let oldSel;
 let oldCustom;
 let custom = false;
 //html objects
-let input_loadFile;
+let input_loadFile = null;
+let input_loadFile2 = null;
 //Zoom vars
 let zoom = 1.00;
 let zMin = 0.9;
@@ -191,6 +192,7 @@ class Objects{
 	}
 
 	loadFile(){
+		if(input_loadFile !== null) input_loadFile.hide();
 		input_loadFile = createFileInput(handleFile);
 		input_loadFile.parent('file-holder');
 	}
@@ -214,6 +216,52 @@ class Objects{
 			last_placed_id = parseInt(maxID) + 1;
 			IDCustom.value(last_placed_id);
 		}
+
+		updateJSON();
+	}
+
+	saveLoadedJson(obj_arr){
+		console.log(obj_arr);
+		let obj = obj_arr.objects;
+		let roads = obj_arr.roads;
+		console.log(obj);
+		console.log(roads);
+
+		let maxID = -1;
+
+		// OBJECTS
+		this.objects = [];
+		for (let i = 0; i < obj.length; i++) {
+			let aux = obj[i];
+			let id_aux = aux.id;
+			let itemName_aux = aux.itemName;
+			let aux_pos = aux.position.split(",");
+			let tileX_aux = aux_pos[0];
+			let tileY_aux = aux_pos[1];
+
+			let o = new Obj(tileX_aux, tileY_aux, id_aux, itemName_aux);
+			this.objects.push(o);
+			if(maxID < id_aux) maxID = id_aux;
+			
+		}
+		// ROADS
+		for (let i = 0; i < roads.length; i++) {
+			let aux = roads[i].split("|")[0].split(",");
+			let tileX_aux = aux[0];
+			let tileY_aux = aux[1];
+			let o = new Obj(tileX_aux, tileY_aux, roads_id, "road");
+			this.objects.push(o);
+		}
+
+		// CHECK
+		console.log("Converted to objects:");
+		console.log(this.objects);
+		if(maxID !== -1){
+			last_placed_id = parseInt(maxID) + 1;
+			IDCustom.value(last_placed_id);
+		}
+
+		updateJSON();
 	}
 }
 
@@ -227,6 +275,7 @@ function handleFile(file){
 
 	Objects.saveLoadedObj(obj_arr);
 	input_loadFile.hide();
+	input_loadFile = null;
 }
 
 function draw_map_area(){
@@ -346,6 +395,36 @@ function downloadJSON(){
   	}*/
 	save(txt.split("\n"), 'created-island.json.txt');
 	//saveStrings(txt, 'createdMap');
+}
+
+function handleFile2(file){	
+	let jsonStr = file.data;
+	console.log(file);
+	let type = file.subtype;
+	// Parse the JSON object into a Javascript object
+	let obj_arr;
+
+	if      (type === "plain") {
+		obj_arr = JSON.parse(jsonStr);
+	}
+
+	else if (type === "json" ) {
+		let base64Str = file.data.split(",")[1];
+		let jsonStr = atob(base64Str); // Parse the base64 string into a JSON string
+		obj_arr = JSON.parse(jsonStr); // Parse the JSON object into a Javascript object
+		//obj_arr = jsonStr;
+	}
+
+	else 	alert("Unsupported File Type. Should be a .txt or a .json");
+	Objects.saveLoadedJson(obj_arr);
+	input_loadFile2.hide();
+	input_loadFile2 = null;
+}
+
+function loadFileJSON(){
+	if(input_loadFile2 !== null) input_loadFile2.hide();
+	input_loadFile2 = createFileInput(handleFile2);
+	input_loadFile2.parent('file-holder-2');
 }
 
 function windowResized(){

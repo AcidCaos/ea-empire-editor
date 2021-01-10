@@ -11,8 +11,7 @@
   </head>
   <body>
 
-    <div style=" background:white; height:40px; width:100%; position:fixed; top:0;
-    left:0;">
+    <div style=" background:white; width:100%;">
         <h2 style="display: inline">Empire Editor</h2> | 
         <style type="text/css">
           #ObjSel { 
@@ -85,16 +84,18 @@
         or Custom: <input id="customName" value="" style="width: 7em">
         <input id="customID" value="1000" style="width: 4em">
         <button onclick='window.open("objects.html", "_blank", "location=no,menubar=no,height=630,width=580,scrollbars=yes,status=no,toolbar=no")'>Search for Objects</button>
-         ~ Map Project: 
+        <!-- ~ Map Project: (Works With Browser Cookies)
         <button onclick="Objects.saveLocal()" title="Save project">Save</button>
         <button onclick="Objects.loadLocal()" title="Load project from browser local Storage">Load</button>
         or <button onclick="Objects.loadFile()" title="Load project from a saved project file">Load file</button>
-                <div id="file-holder" style="display: inline"></div>
-         ~ Map JSON: 
+                <div id="file-holder" style="display: inline"></div>-->
+         ~ Map JSON:
         <button onclick="downloadJSON()" title="Download map file (not the project)">Download</button>
+        <button onclick="loadFileJSON()" title="Load a map file (not the project)">Experimental Load</button>
+                <div id="file-holder-2" style="display: inline"></div>
         <div><hr></div>
     </div>
-    <div style=" padding-top:35px ">
+    <div>
         <script src="js/sketch.js" type="text/javascript"></script>
         <div id="sketch-holder">
           <!-- Sketch here -->
