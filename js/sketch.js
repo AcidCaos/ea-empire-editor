@@ -53,6 +53,7 @@ class Obj {
 		this.tileY = y;
 		//console.log(x + ", isom " + y);
 		//Actual screen position (may cahnge)
+		//this.recalcCoords();
 		this.coordY = (y*((canvas_size*c_ratio)/total_tiles)-(height/2)+c_ratio*(x*(canvas_size/total_tiles)+(width/2)))/2;
 		this.coordX = x*(canvas_size/total_tiles)+(width/2)-(this.coordY/c_ratio);
 	}
@@ -175,7 +176,7 @@ class Objects{
 
 	saveLocal(){
 
-		save(this.objects, 'projectSAVE.json');
+		save(this.objects, 'empire-project.json');
 		console.log("JSON project downloaded");
 
 		localStorage.setItem("localSave", JSON.stringify(this.objects));
@@ -310,7 +311,7 @@ function draw_selected(){
 function draw_menu(){
 	fill(255);
 	//Top left text
-	text('JS Empire Editor v0.1 ~ Raise the Empires 2019', 10, 20);
+	text('JS Empire Editor v0.1 ~ Raise the Empires 2019-21', 10, 20);
 	text('Mouse Pos: (' + floor(mouseX) + ', ' + floor(mouseY) + ')', 10, 40);
 	if(x_coord >= 0 && x_coord <= total_tiles && y_coord >= 0 && y_coord <= total_tiles){
 		text('Isometric coords: (' + floor(x_coord) + ', ' + floor(y_coord) + ')', 10, 60);
@@ -343,8 +344,8 @@ function downloadJSON(){
 	/*if (typeof txt === 'string') {
     	console.log("String!!!");
   	}*/
-	//save(txt, 'createdMap.json');
-	saveStrings(txt, 'createdMap');
+	save(txt.split("\n"), 'created-island.json.txt');
+	//saveStrings(txt, 'createdMap');
 }
 
 function windowResized(){
@@ -404,7 +405,7 @@ function draw(){
 	//Isometric coordinates
 	x_coord = (mouseX - (width/2)  + ( (1/c_ratio) * mouseY ) ) * ( total_tiles / canvas_size );
 	y_coord = (mouseY + (height/2) - (   c_ratio   * mouseX ) ) * ( total_tiles / (canvas_size * c_ratio) );
-	draw_menu();
+	//draw_menu(); <------------------ MENU...
 
 	//translate(width/2,height/2);
   	//fill(0);
@@ -440,12 +441,13 @@ function draw(){
 
 	draw_tiles();
 
-	draw_mouse_on_top();
+	//draw_mouse_on_top();
 
 	draw_selected();
 
 	draw_saved();
 
+	/* Mouse on top
 	strokeWeight(3);
 	beginShape();
 
@@ -457,7 +459,7 @@ function draw(){
 		mouse_X = mouseX/zoom;		//EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE  <-----
 		mouse_Y = mouseY/zoom;
 	};
-	endShape();
+	endShape();*/
 }
 
 function mouseClicked(){
