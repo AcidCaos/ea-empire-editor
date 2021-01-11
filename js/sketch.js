@@ -1,3 +1,12 @@
+//Dynamic
+let empty_url = "https://i.imgur.com/ZGXtIYc.png"; // Post: https://imgur.com/a/iY7ajfa
+let initial_url = "https://i.imgur.com/7EMGLPc.png";
+let steeles_url = "https://i.imgur.com/siZbE0r.png";
+
+let bg_empty;
+let bg_initial;
+let bg_steeles;
+
 //Sketch Variables
 let enabled_zoom = false;
 let roads_id = 0;
@@ -237,6 +246,7 @@ class Objects{
 		}
 
 		updateJSON();
+		redraw();
 	}
 
 	saveLoadedJson(obj_arr){
@@ -281,6 +291,7 @@ class Objects{
 		}
 
 		updateJSON();
+		redraw();
 	}
 }
 
@@ -467,6 +478,13 @@ function windowResized(){
 	Objects.recalcCoords();
 }
 
+function preload(){
+
+	bg_empty = loadImage(empty_url);
+	bg_initial = loadImage(initial_url);
+	bg_steeles = loadImage(steeles_url);
+}
+
 function setup(){
 	frameRate(60);
 	canvas_size = windowWidth-35;
@@ -483,17 +501,24 @@ function setup(){
 	tileWidth  = 2*cos*q;
 	//HTML select
 	ObjSelect = select("#ObjSel");
+	bgSel = select("#bgSel");
 	ObjCustom = select("#customName");
 	IDCustom = select("#customID");
 	JSONmap = select("#jsonMap");
 	IDCustom.value(last_placed_id);
 	//console.log(ObjSelect.value());
 	//bg = loadImage("https://serving.photos.photobox.com/498457652e5862ae82ea4f1226d7a0a04e1d5bc20590fd7a2f2b20030c30f2bd1c36c9b9.jpg");
-	bg = loadImage("https://i.imgur.com/6oW7vfR.jpg");
+
+	bg = bg_empty;
+	noLoop();
 }
 
 function draw(){
+	console.log("draw");
 	//background(51, 51, 153);
+	if 		(bgSel.value()=="empty" && bg!=empty_url) bg = bg_empty;
+	else if (bgSel.value()=="initial" && bg!=initial_url) bg = bg_initial;
+	else if (bgSel.value()=="steeles" && bg!=steeles_url) bg = bg_steeles;
 	background(bg, 30, 55);
 	//background(bg);
 	//background(loadImage('map.png'));
@@ -561,7 +586,7 @@ function draw(){
 }
 
 function mouseClicked(){
-
+	loop();
 	console.log('mouse Clicked');
 	let oldX = selectedX;
 	let oldY = selectedY;
@@ -591,6 +616,7 @@ function mouseClicked(){
 		}
 	}
 	updateJSON();
+	noLoop();
 }
 /*
 function mouseWheel(event) {
