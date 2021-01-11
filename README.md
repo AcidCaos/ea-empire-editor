@@ -5,8 +5,8 @@ A simple and inefficient p5.js map editor to get a JSON map file.
 
 #### Warning
 - The code is not optimized.
-- Game files are not compatible with the game save files, except for `initial-island.json` or `Steele-island.json`.
-- There is no simple way (yet) to convert a game save file to a project file.
+- Game files are not compatible with the game save files, except for `initial-island.json` and `Steele-island.json`.
+- There is no simple way (yet) to convert a game save file.
 
 ### How to use it
 - To use it: Download the github files, then open the `empire_editor.html` on a browser. I've used it with Chrome, but any browser running JS should work.
