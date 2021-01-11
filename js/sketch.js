@@ -71,8 +71,27 @@ class Obj {
 		//console.log(cX + " sketch " + cY);
 		let cY = this.coordY;
 		let cX = this.coordX;
+		//banana
+		if 		(this.itemName == "tree22") fill(255,238,153);
+		else if (this.itemName == "tree21") fill(255,230,102);
+		else if (this.itemName == "tree23") fill(255,221,51);
+		//coconut
+		else if (this.itemName == "tree24") fill(230,115,0);
+		else if (this.itemName == "tree25") fill(179,89,0);
+		else if (this.itemName == "tree26") fill(128,64,0);
+		//palm
+		else if (this.itemName == "tree27") fill(0,179,0);
+		else if (this.itemName == "tree28") fill(0,130,0);
+		else if (this.itemName == "tree29") fill(0,80,0);
+		//other
+		else if (this.itemName.includes("road")) fill(39, 55, 70);
+		else if (this.itemName.includes("rock")) fill(240, 178, 122);
+		else if (this.itemName.includes("bricks")) fill(202, 207, 210);
+		else if (this.itemName.includes("Blue")) fill(93, 173, 226);
+		else if (this.itemName.includes("Daisy")) fill(136, 78, 160);
+		//else if (this.itemName.includes("")) fill();
+		else 	fill(134, 37, 91);
 
-		fill(134, 37, 91);
 		strokeWeight(0.5);
 		beginShape();
 			vertex(cX, cY);
