@@ -205,25 +205,24 @@ class Objects{
 
 	saveLocal(){
 
-		save(this.objects, 'empire-project.json');
-		console.log("JSON project downloaded");
+		//save(this.objects, 'empire-project.json');
+		//console.log("JSON project downloaded");
 
 		localStorage.setItem("localSave", JSON.stringify(this.objects));
-		console.log("Saved (localStorage)");
-
-		alert("Saved in the browser local Storage.\nSaved in the downloaded file.");
+		console.log("Saved Cookie");
 	}
 
 	loadLocal(){
 		let obj_arr = JSON.parse( localStorage.getItem("localSave"));
 		this.saveLoadedObj(obj_arr);
+		console.log("Loaded Cookie");
 	}
 
-	loadFile(){
+	/*loadFile(){
 		if(input_loadFile !== null) input_loadFile.hide();
 		input_loadFile = createFileInput(handleFile);
 		input_loadFile.parent('file-holder');
-	}
+	}*/
 
 	saveLoadedObj(obj_arr){
 		
@@ -295,7 +294,7 @@ class Objects{
 	}
 }
 
-function handleFile(file){	
+/*function handleFile(file){	
 	// Split file.data and get the base64 string
 	let base64Str = file.data.split(",")[1];
 	// Parse the base64 string into a JSON string
@@ -306,7 +305,7 @@ function handleFile(file){
 	Objects.saveLoadedObj(obj_arr);
 	input_loadFile.hide();
 	input_loadFile = null;
-}
+}*/
 
 function draw_map_area(){
 	fill(12, 187, 55);
@@ -476,6 +475,8 @@ function windowResized(){
 	selectedMapY = -1;
 	//recalculate all Objects Position
 	Objects.recalcCoords();
+	console.log("window resized");
+	redraw();
 }
 
 function preload(){
