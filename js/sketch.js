@@ -72,7 +72,7 @@ class Obj {
 		let cY = this.coordY;
 		let cX = this.coordX;
 		//banana
-		if 		(this.itemName == "tree22") fill(255,238,153);
+		if		(this.itemName == "tree22") fill(255,238,153);
 		else if (this.itemName == "tree21") fill(255,230,102);
 		else if (this.itemName == "tree23") fill(255,221,51);
 		//coconut
@@ -89,7 +89,7 @@ class Obj {
 		else if (this.itemName.includes("bricks")) fill(202, 207, 210);
 		else if (this.itemName.includes("Blue")) fill(93, 173, 226);
 		else if (this.itemName.includes("Daisy")) fill(136, 78, 160);
-		//else if (this.itemName.includes("")) fill();
+		else if (this.itemName.includes("tree")) fill(76, 166, 0);
 		else 	fill(134, 37, 91);
 
 		strokeWeight(0.5);
